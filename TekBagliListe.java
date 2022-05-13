@@ -137,11 +137,6 @@ public int elemanSil(int deger){
 
 }
 
-
-//ödev : yeni bir sınıf oluşturun :siraliTekBagliListe    
-//bu sınıf için sadece yapıcı metod + elemanEkle ve listele fonksiyonunu kodlayın,
-//bu fonksiyon sayıları küçükten büyüğe olacak şekilde listeye eklesin
-   
     //listedeki tüm elemanları baştan sona doğru sırasıyla ekrana yazar
     public void listele(){
          
