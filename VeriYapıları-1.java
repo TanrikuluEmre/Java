@@ -1,6 +1,6 @@
 public class App {
 
-    //aynı işi yapan fonksiyonların isimleri aynı seçilmelidir
+    //aynı işi yapan fonksiyonların isimleri aynı seçilmelidir.
     //buna function overloading denir (fonksiyonların aşırı yüklenmesi)
     //aynı isim üzerinden aynı işi farklı parametrelerle gerçekleştirebiliriz
    
