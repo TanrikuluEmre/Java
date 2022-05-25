@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Main {
+public class FrekansTablosu {
 
     public static void main(String[] args) {
         Scanner sayi = new Scanner(System.in);
-        System.out.println("Sayi Miktarını Giriniz : ");
+        System.out.print("Sayi Miktarını Giriniz : ");
         int n = sayi.nextInt();
 
         int sayac=0;
@@ -13,7 +13,7 @@ public class Main {
 
         for (int i = 0; i < dizi.length; i++) {
             Scanner sayi2 = new Scanner(System.in);
-            System.out.println(i+".Sayi : ");
+            System.out.print(i+1+".Sayi : ");
             int sonuc2 = sayi2.nextInt();
             dizi[i]=sonuc2;
 
@@ -30,6 +30,7 @@ public class Main {
                     deger=dizi[i];
             }
         }
+        System.out.print("Sayılar : ");
         for (int i = 0; i < dizi.length; i++) {
             System.out.print(dizi[i]+" ");
         }
@@ -139,7 +140,7 @@ public class Main {
 
         System.out.println("");
         System.out.println("*******************************");
-        System.out.println("TOPLAM SINIF FREKANSI");
+        System.out.println("EKLENIK SINIF FREKANSI");
         int []sayDizi=new int [n];
         for (int i = 0; i < k; i++) {
             for (int j = 0; j < n; j++) {
@@ -178,7 +179,7 @@ public class Main {
 
         System.out.println("");
         System.out.println("*******************************");
-        System.out.println("TOPLAM SINIF FREKANSI");
+        System.out.println("EKLENIK SINIF FREKANSI");
         int []sayDiziCopy=new int [n];
         for (int i = 0; i < k; i++) {
             for (int j = 0; j < n; j++) {
@@ -199,6 +200,59 @@ public class Main {
                 say=0;
             }
         }
+        System.out.println("*******************************");
+
+        dortteBirlikler(n, dizi, h, diziUstSinir, diziAltSinir);
     }
+    public static void dortteBirlikler(int n,int[] dizi,double h,double[] diziUstSinir,double[] diziAltSinir){
+
+        double x = n/4f;
+        int n1=0,n3=0,fQ1=0,fQ3=0,hangiSinif=0;
+        double Q1,j1,j3,Q3;
+        int []sayi=new int [diziAltSinir.length];;
+
+        for (int i = 0; i < diziAltSinir.length; i++) { // sinif frekans sayisini bulma dongusu
+            for (int j = 0; j < n; j++) {
+                if (dizi[j]<diziUstSinir[i]&&diziAltSinir[i]<dizi[j])
+                {
+                    sayi[i]++;
+                }
+            }
+        }
+        
+        for(int i=0;i<diziAltSinir.length;i++){ // Q1
+
+            n1+=sayi[i];
+            if(x<=n1){
+                n1 -= sayi[i];
+                fQ1=sayi[i];
+                hangiSinif = i;
+                break;
+            }
+            
+
+            
+        }
+        j1 = x-n1;
+        Q1 = diziAltSinir[hangiSinif]+((j1*h)/fQ1);
+        System.out.println("Q1 = "+Q1);
+       
+        double y = 3*n/4f;
+        
+        for(int i = 0;i<diziAltSinir.length;i++){  // Q3
+            n3+=sayi[i];
+            if(x<=n3){
+                n3-=sayi[i];
+                fQ3 = sayi[i];
+                hangiSinif = i;
+                break;
+            }
+            
+        }
+        j3 = y-n3;
+        Q3 = diziAltSinir[hangiSinif]+((j3*h)/fQ3);
+        System.out.println("Q3 : "+Q3);
+
+    } 
 }
 
